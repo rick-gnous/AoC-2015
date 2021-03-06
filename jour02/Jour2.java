@@ -1,12 +1,9 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 
 public class Jour2 {
         private String filename;
-        private FileInputStream fis;
-        private Scanner sc;
         private ArrayList<Box> listBox;
         
         public Jour2(String filename) {
@@ -14,10 +11,14 @@ public class Jour2 {
                 this.listBox = new ArrayList<Box>();
         }
 
-        public void premPartie() {
-                int result = 0, x, y, z;
-                this.loadFile();
+        /**
+         * Charge dans l’attribut listBox les boites contenues dans le fichier.
+         */
+        private void loadFileArrayList() {
+                int x, y, z;
                 try {
+                        FileInputStream fis = new FileInputStream(filename);
+                        Scanner sc = new Scanner(fis);
                         String line;
                         while (sc.hasNextLine()) {
                                 line = sc.nextLine();
@@ -27,53 +28,31 @@ public class Jour2 {
                                 z = Integer.parseInt(tokens[2]);
                                 this.listBox.add(new Box(x, y, z));
                         }
-
-                        for (int i = 0; i < this.listBox.size(); i++) {
-                                result += this.listBox.get(i).getSurface();
-                                result += this.listBox.get(i).areaSmallSurface();
-                        }
+                        sc.close();
+                        fis.close();
                 } catch (Exception e) {
                         System.err.println("Erreur !!");
                         e.printStackTrace();
                 }
+        }
 
-                this.unloadFile();
+        public void premPartie() {
+                if (this.listBox.isEmpty())
+                        this.loadFileArrayList();
+                int result = 0;
+                for (int i = 0; i < this.listBox.size(); i++) {
+                        result += this.listBox.get(i).getSurface();
+                        result += this.listBox.get(i).areaSmallSurface();
+                }
                 System.out.println("Il faut " + result + " pieds de papiers cadeaux.");
         }
 
         public void deuxPartie() {
-                this.loadFile();
-                try {
-                        //while (sc.hasNextLine()) {
-                        //        
-                        //}
-
-                } catch (Exception e) {
-                        System.err.println("Erreur !!");
-                        e.printStackTrace();
-                }
-                this.unloadFile();
-        }
-
-        private void loadFile() {
-                try {
-                        this.fis = new FileInputStream(filename);
-                        this.sc = new Scanner(fis);
-                } catch (Exception e) {
-                        System.err.println("Erreur rencontrée lors de"
-                                        + "l’ouverture du fichier.");
-                        e.printStackTrace();
-                }
-        }
-
-        private void unloadFile() {
-                try {
-                        this.sc.close();
-                        this.fis.close();
-                } catch (Exception e) {
-                        System.err.println("Erreur rencontrée lors de la "
-                                        + "fermeture du fichier.");
-                        e.printStackTrace();
-                }
+                if (this.listBox.isEmpty())
+                        this.loadFileArrayList();
+                int result = 0;
+                for (int i = 0; i < this.listBox.size(); i++)
+                        result += this.listBox.get(i).calculateRibbon();
+                System.out.println("Il faut " + result + " pieds de rubans.");
         }
 }

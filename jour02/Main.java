@@ -4,6 +4,6 @@ public class Main {
                 System.out.println("Exécution de la première partie…");
                 j.premPartie();
                 System.out.println("Exécution de la deuxième partie…");
-                //j.deuxPartie();
+                j.deuxPartie();
         }
 }
