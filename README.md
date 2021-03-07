@@ -68,15 +68,15 @@ python3 run.py
 
 ## Jour 5
 
-On retourne dans le passé ici avec le **Cobol**. J’ai utilisé le compilateur GNUCOBOL pour pouvoir compiler mon fichier. J’ai préféré utiliser l’ancienne syntaxe pour changer un peu ma façon de coder (et je trouve le symbole de la ligne 7 génial).
+On retourne dans le passé ici avec le **Cobol**. J’ai utilisé le compilateur GNUCOBOL pour pouvoir compiler mon fichier. J’ai préféré utiliser l’ancienne syntaxe pour changer un peu ma façon de coder (et je trouve le symbole de la ligne 7 génial) sur la première partie.
 
 ```bash
 # pour installer le compilateur
 sudo xbps-install gnucobol gmp-devel # sur Void
 
 # pour compiler et exécuter
-cobc -x jour5.cob
-./jour5
+cobc -x jour5-prem.cob
+./jour5-prem
 ```
 
 Il reste des messages de débugging. Si vous souhaitez les voir, il suffit de rajouter l’option `-fdebugging-line` au compilateur.
