@@ -1,18 +1,18 @@
        IDENTIFICATION DIVISION.
         PROGRAM-ID. jour-cinq-prem-part.
-      
+
        ENVIRONMENT DIVISION.
           INPUT-OUTPUT SECTION.
           FILE-CONTROL.
                SELECT FILE1 ASSIGN TO "input"
                ORGANIZATION LINE SEQUENTIAL.
-      
+
        DATA DIVISION.
          FILE SECTION.
          FD FILE1.
            01 INPUT-FILE.
              02 STR PIC A(17).
-      
+
          WORKING-STORAGE SECTION.
            01 MY-FILE.
              02 MY-STR PIC A(17).
@@ -20,7 +20,7 @@
              88 EOF VALUE 'Y'.
            77 NB-NICE-PREM PIC 9(4) VALUE 0.
            77 NB-NICE-DEUX PIC 9(4) VALUE 0.
-      
+
        PROCEDURE DIVISION.
        main.
            OPEN INPUT FILE1.
@@ -41,7 +41,7 @@
            DISPLAY "Dans la partie 2 : " NB-NICE-DEUX END-DISPLAY.
            CLOSE FILE1.
            STOP RUN.
-      
+
       *****************************************************************
       * hub : exécute les 2 fonctions pour les 2 parties
       * STR : la chaine à passer en paramètre aux deux fonctions
@@ -49,10 +49,10 @@
       * NB-DEUX : (REFERENCE) nombre bonnes chaines partie 2
       * Ces 2 variables seront incrémentées
       *****************************************************************
-      
+
        IDENTIFICATION DIVISION.
          PROGRAM-ID. hub.
-         
+
        DATA DIVISION.
          LINKAGE SECTION.
            77 STR PIC A(17).
@@ -81,7 +81,7 @@
 
        IDENTIFICATION DIVISION.
        PROGRAM-ID. parse-prem.
-    
+
        DATA DIVISION.
          WORKING-STORAGE SECTION.
            77 CHAR PIC A.
@@ -103,11 +103,11 @@
       *
       * LINKAGE SECTION contient les paramètres du programme parse-str
       *****************************************************************
-      
+
          LINKAGE SECTION.
            77 STR PIC A(17).
            77 NB PIC 9(4).
-      
+
        PROCEDURE DIVISION USING STR, NB.
        parse.
            MOVE 0 TO NB-VOY.
@@ -144,7 +144,7 @@
 
        IDENTIFICATION DIVISION.
          PROGRAM-ID. parse-deux.
-      
+
        DATA DIVISION.
          WORKING-STORAGE SECTION.
            77 CHAR PIC A.
@@ -159,7 +159,7 @@
            77 DOUBLE-CHAR-NEXT PIC AA.
            77 BETWEEN PIC X.
            77 DOUBLE PIC X.
-      
+
       ******************************************************************
       * PRED le caractère précédent
       * MYNEW le caractère suivant
@@ -168,11 +168,11 @@
       * DOUBLE est mit à Y lorsque 2 pairs sont trouvées
       * BETWEEN est mit à Y lorsque 2 memes lettres en encadrent une
       ******************************************************************
-      
+
          LINKAGE SECTION.
            77 STR PIC A(17).
            77 NB PIC 9(4).
-      
+
        PROCEDURE DIVISION USING STR, NB.
        deuxieme-part.
            MOVE 'N' TO BETWEEN.
