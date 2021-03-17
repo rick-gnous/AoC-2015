@@ -87,16 +87,17 @@ J’ai appris à coder en COBOL très rapidement pour ce jour. Je me suis appuy�
 En tant que développeur, je suis feignant. Voici un mini script bash pour générer les colonnes de lignes se trouvant dans le fichier : 
 
 ```bash
-nbLine=$(wc -l jour5.cob | cut -d\  -f1)
-for i in $(seq -f "%06g" $nbLines); 
-do 
-    sed -Ei '0,/^\s{1,6}/s//'$i'/' jour5.cob
+nb=$(wc -l jour5.cob | cut -d\  -f1)
+for i in $(seq -f "%06g" $nb)
+do
+    sed -Ei '0,/(^\s{6}|^\s*$)/s//'$i'/' jour5.cob
 done
 ```
 
 Si vous souhaitez éditer le fichier, il est plus pratique de le faire sans ces nombres. Voici la commande permettant de les retirer :
 
 ```bash
+sed -Ei 's/^[0-9]{6}$//g' jour5.cob # pour éviter les espaces inutiles
 sed -Ei 's/^[0-9]{6}/      /g' jour5.cob
 ```
 
