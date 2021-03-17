@@ -1,5 +1,6 @@
 # AoC 2015
 
+
 J’ai décidé de faire l’édition de 2015 de l’Advent of Code en utilisant un langage différent pour chaque jour. J’essaie d’utiliser au mieux le langage (par exemple, Java est orienté objet). Vous trouverez ci-dessous un tableau résumant rapidement ce dont vous avez besoin pour lancer chaque jour et plus bas encore des notes plus précises pour les différents jours.
 
 ## TLDR
@@ -75,13 +76,29 @@ On retourne dans le passé ici avec le **Cobol**. J’ai utilisé le compilateur
 sudo xbps-install gnucobol gmp-devel # sur Void
 
 # pour compiler et exécuter
-cobc -x jour5-prem.cob
-./jour5-prem
+cobc -x jour5.cob
+./jour5
 ```
 
-Il reste des messages de débugging. Si vous souhaitez les voir, il suffit de rajouter l’option `-fdebugging-line` au compilateur.
+Il reste des messages de débugging. Si vous souhaitez les voir, il suffit de rajouter l’option `-fdebugging-line` au compilateur. **Les messages ont été supprimés.**
 
 J’ai appris à coder en COBOL très rapidement pour ce jour. Je me suis appuyé sur [le cours de Wikiversite](https://fr.wikiversity.org/wiki/COBOL) pour les bases et aussi de [la documentation officielle GNUCOBOL](https://devdocs.io/gnu_cobol/).
+
+En tant que développeur, je suis feignant. Voici un mini script bash pour générer les colonnes de lignes se trouvant dans le fichier : 
+
+```bash
+nbLine=$(wc -l jour5.cob | cut -d\  -f1)
+for i in $(seq -f "%06g" $nbLines); 
+do 
+    sed -Ei '0,/^\s{1,6}/s//'$i'/' jour5.cob
+done
+```
+
+Si vous souhaitez éditer le fichier, il est plus pratique de le faire sans ces nombres. Voici la commande permettant de les retirer :
+
+```bash
+sed -Ei 's/^[0-9]{6}/      /g' jour5.cob
+```
 
 ## Jour 6
 ## Jour 7
@@ -113,7 +130,7 @@ Liste des langages utilisés
 
 * Shell
 * Perl
-* LOLCODE / HolyC
+* HolyC
 * C++
 * C#
 * Pascal
@@ -121,13 +138,27 @@ Liste des langages utilisés
 * Go
 * Rust
 * Groovy
-* Haskell
 * JS
 * PHP
 * Pony
 * Ruby
 * Lua
 * Pawn
-* PureBasic
 * Squirrel
 * Scala
+
+## Langages non utilisées
+
+Liste des langages devant être utiliser mais qui ne l’ont pas été. J’essai d’apporter des explications au pourquoi.
+
+### LOLCODE
+
+Le LOLCODE ne permet pas la manipulation de chaines de caractères ou de manière peu flexible : [post Stackoverflow](https://stackoverflow.com/questions/29762129/lolcode-string-parsing).
+
+### Haskell
+
+Le Haskell est un langage de logique, son foctionnement et surtout sa structure est différente des autres programmes.
+
+### PureBasic
+
+Compilateur propriétaire.
