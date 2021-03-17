@@ -32,7 +32,7 @@
                       BY CONTENT MY-STR,
                       BY REFERENCE NB-NICE-PREM
                       BY REFERENCE NB-NICE-DEUX
-      * On passe par référence NB-NICE pour l’incrémenter
+      * On passe par référence NB-NICE pour les incrémenter
                       END-CALL
               END-READ
            END-PERFORM.
@@ -112,35 +112,25 @@
        parse.
            MOVE 0 TO NB-VOY.
            MOVE 'N' TO DOUBLE.
-      d    DISPLAY STR.
-      d    DISPLAY "=================".
            PERFORM VARYING I FROM 1 BY 1 UNTIL END-P
                MOVE STR(I:1) TO CHAR
-      d        DISPLAY "ACT. CHAR : " CHAR
-      d        DISPLAY "ACT. PRED : " PRED
-      d        DISPLAY "I : " I
-               IF VOY
-                   THEN ADD 1 TO NB-VOY END-ADD
+               IF VOY THEN
+                   ADD 1 TO NB-VOY END-ADD
                END-IF
                IF I >= 2
                    THEN
                        STRING PRED CHAR INTO TMP END-STRING
-      d                DISPLAY "TMP STR : " TMP
-                       IF BAD
-                           THEN
-                               EXIT PERFORM
+                       IF BAD THEN
+                           EXIT PERFORM
                        END-IF
-                       IF PRED = CHAR
-                           THEN
-                               MOVE 'Y' TO DOUBLE
+                       IF PRED = CHAR THEN
+                           MOVE 'Y' TO DOUBLE
                        END-IF
-      d                DISPLAY "DOUBLE : " DOUBLE
                END-IF
                MOVE CHAR TO PRED
            END-PERFORM.
-           IF NOT BAD AND NB-VOY >= 3 AND DOUBLE = 'Y' 
-               THEN
-                   ADD 1 TO NB END-ADD
+           IF NOT BAD AND NB-VOY >= 3 AND DOUBLE = 'Y' THEN
+               ADD 1 TO NB END-ADD
            END-IF.
            EXIT PROGRAM.
        END PROGRAM parse-prem.
@@ -215,7 +205,6 @@
                    ADD 1 TO NB END-ADD
            END-IF.
            EXIT PROGRAM.
-
        END PROGRAM parse-deux.
 
        END PROGRAM hub.
