@@ -1,5 +1,5 @@
        IDENTIFICATION DIVISION.
-        PROGRAM-ID. jour-cinq-prem-part.
+        PROGRAM-ID. jour-cinq.
 
        ENVIRONMENT DIVISION.
           INPUT-OUTPUT SECTION.
@@ -208,4 +208,4 @@
        END PROGRAM parse-deux.
 
        END PROGRAM hub.
-       END PROGRAM jour-cinq-prem-part.
+       END PROGRAM jour-cinq.
