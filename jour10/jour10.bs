@@ -2,25 +2,49 @@ basInput$ = "1113222113"
 pred$ = ""
 act$ = ""
 new$ = ""
-k = 0
+nb = 0
+
+maxx=peek("screenwidth")-1:maxy=peek("screenheight")-1
+clear screen
 
 for i = 0 to 40
     print i, " / 40"
-    for j = 1 to len(basInput$) step k
-        k = 1
+    for j = 1 to len(basInput$) step nb
+        print at(0,i) i," / 40 mots | ",j," / ",len(basInput$)," lettres"
         act$ = mid$(basInput$, j, 1)
-        pred$ = act$
-        while pred$ = act$ and (j + k) < len(basInput$)
-            pred$ = act$
-            act$ = mid$(basInput$, j + k, 1)
-            k = k + 1
-            if act$ <> pred$ then
-                k = k - 1
+        if (act$ = mid$(basInput$, j + 1, 1)) then
+            if (act$ = mid$(basInput$, j + 2, 1)) then
+                nb = 3
+            else
+                nb = 2
             endif
-        wend
-        new$ = new$ + str$(k) + pred$
+        else
+            nb = 1
+        endif
+        new$ = new$ + str$(nb) + act$
         next j
     basInput$ = new$
     next i
+
+rem ancien code
+rem print new$
+rem for i = 0 to 40
+rem     print i, " / 40"
+rem     for j = 1 to len(basInput$) step k
+rem         k = 1
+rem         act$ = mid$(basInput$, j, 1)
+rem         pred$ = act$
+rem         while pred$ = act$ and (j + k) < len(basInput$)
+rem             pred$ = act$
+rem             act$ = mid$(basInput$, j + k, 1)
+rem             k = k + 1
+rem             if act$ <> pred$ then
+rem                 k = k - 1
+rem             endif
+rem         wend
+rem         new$ = new$ + str$(k) + pred$
+rem         next j
+rem     basInput$ = new$
+rem     next i
 
 print "La longeur de la chaine finale est ", len(basInput$)
