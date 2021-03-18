@@ -7,32 +7,34 @@ J’ai décidé de faire l’édition de 2015 de l’Advent of Code en utilisant
 
 Ce tableau contient les langages pour chaque jours ainsi que le compilateur, la commande pour compiler et exécuter les différents fichiers. Si vous souhaitez plus d’informations, descendez à la bonne section.
 
-| Jour | Langage | Compilateur | Commande pour compil  |    Exécution    |   |
-|-----:|--------:|------------:|----------------------:|----------------:|--:|
-|  1   |    C    |    gcc      |      gcc jour1.c      |   ./a.out       |   |
-|  2   |   Java  |    jdk 11   |       javac *.java    |  java Main      |   |
-|  3   |         |             |                       |                 |   |
-|  4   | Python  |             |                       |  python3 run.py |   |
-|  5   | Cobol   |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |   |
-|  6   |         |             |                       |                 |   |
-|  7   |         |             |                       |                 |   |
-|  8   |         |             |                       |                 |   |
-|  9   |         |             |                       |                 |   |
-|  10  |         |             |                       |                 |   |
-|  11  |         |             |                       |                 |   |
-|  12  |         |             |                       |                 |   |
-|  13  |         |             |                       |                 |   |
-|  14  |         |             |                       |                 |   |
-|  15  |         |             |                       |                 |   |
-|  16  |         |             |                       |                 |   |
-|  17  |         |             |                       |                 |   |
-|  18  |         |             |                       |                 |   |
-|  19  |         |             |                       |                 |   |
-|  20  |         |             |                       |                 |   |
-|  21  |         |             |                       |                 |   |
-|  22  |         |             |                       |                 |   |
-|  23  |         |             |                       |                 |   |
-|  24  |         |             |                       |                 |   |
+vbnc jour10.vbs
+mono jour10.exe
+| Jour | Langage     | Compilateur | Commande pour compil  |    Exécution    |   |
+|-----:|------------:|------------:|----------------------:|----------------:|--:|
+|  1   |    C        |    gcc      |      gcc jour1.c      |   ./a.out       |   |
+|  2   |   Java      |    jdk 11   |       javac *.java    |  java Main      |   |
+|  3   |             |             |                       |                 |   |
+|  4   | Python      |             |                       |  python3 run.py |   |
+|  5   | Cobol       |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |   |
+|  6   |             |             |                       |                 |   |
+|  7   |             |             |                       |                 |   |
+|  8   |             |             |                       |                 |   |
+|  9   |             |             |                       |                 |   |
+|  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe |   |
+|  11  |             |             |                       |                 |   |
+|  12  |             |             |                       |                 |   |
+|  13  |             |             |                       |                 |   |
+|  14  |             |             |                       |                 |   |
+|  15  |             |             |                       |                 |   |
+|  16  |             |             |                       |                 |   |
+|  17  |             |             |                       |                 |   |
+|  18  |             |             |                       |                 |   |
+|  19  |             |             |                       |                 |   |
+|  20  |             |             |                       |                 |   |
+|  21  |             |             |                       |                 |   |
+|  22  |             |             |                       |                 |   |
+|  23  |             |             |                       |                 |   |
+|  24  |             |             |                       |                 |   |
 
 
 
@@ -105,7 +107,22 @@ sed -Ei 's/^[0-9]{6}/      /g' jour5.cob
 ## Jour 7
 ## Jour 8
 ## Jour 9
+
 ## Jour 10
+
+Il faut utiliser Mono afin de pouvoir compiler et exécuter le Visual Basic qui utilise .NET.
+
+```bash
+trizen -S mono-basic mono
+```
+
+Il faut utiliser ensuite le compileur avant d’exécuter le `.exe` généré avec Mono.
+
+```bash
+vbnc jour10.vbs
+mono jour10.exe
+```
+
 ## Jour 11
 ## Jour 12
 ## Jour 13
