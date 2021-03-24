@@ -119,3 +119,6 @@ myInput = "cqjxjnds"
 print("Traitement première partie…")
 myInput = findPass(myInput)
 print("Le nouveau mot de passe est : " .. myInput)
+print("Traitement deuxième partie…")
+myInput = findPass(suivant(myInput))
+print("Le nouveau mot de passe est : " .. myInput)
