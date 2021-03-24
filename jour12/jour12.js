@@ -1,8 +1,8 @@
 const fs = require('fs');
-const file = fs.readFileSync("input", "utf8");
-const data = JSON.parse(file);
 
 try {
+  const file = fs.readFileSync("input", "utf8");
+  const data = JSON.parse(file);
   console.log("Traitement de la première partie…");
   console.log("La somme totale est " + parseJsonPrem(data));
 } catch(err) {
