@@ -167,7 +167,6 @@ Liste des langages utilisés
 * PHP
 * Pony
 * Ruby
-* Lua
 * Pawn
 * Squirrel
 * Scala
