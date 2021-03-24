@@ -22,7 +22,7 @@ mono jour10.exe
 |  9   |             |             |                       |                 |   |
 |  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe |   |
 |  11  |   Lua       |             |                       |  lua jour11.lua |   |
-|  12  |             |             |                       |                 |   |
+|  12  | Node.JS     |             |                       | node jour12.js  |   |
 |  13  |             |             |                       |                 |   |
 |  14  |             |             |                       |                 |   |
 |  15  |             |             |                       |                 |   |
@@ -132,6 +132,26 @@ lua jour11.lua
 ```
 
 ## Jour 12
+
+Avant d’écrire le script Node.JS, j’ai utilisé une REGEX pour la première partie. Il suffit d’additionner les nombres du fichier ! Ça se fait très facilement en Bash. Par contre, la REGEX de la partie 2, si elle existe, est beaucoup plus complexe. J’ai préféré réécrire ma réponse à la question 1 en Node.JS, langage logique pour du JSON.
+
+Voici la ligne bash décortiquée en script pour une meilleure compréhension :
+
+```bash
+sum=0
+for i in $(grep -oE '(-)?[[:digit:]]+' input)
+do 
+    sum=$(($sum + $i))
+done
+echo $sum
+```
+
+Sinon, il suffit d’installer `node` et de lancer avec la commande suivante, aucune dépendance n’est requise : 
+
+```bash
+node jour12.js
+```
+
 ## Jour 13
 ## Jour 14
 ## Jour 15
