@@ -4,19 +4,26 @@ const data = JSON.parse(file);
 
 try {
   console.log("Traitement de la première partie…");
-  console.log("La somme totate est " + parseJsonPrem(data));
+  console.log("La somme totale est " + parseJsonPrem(data));
 } catch(err) {
   console.log("Une erreur a été rencontrée !");
   console.error(err);
 }
 
+/**
+ * Fonction additionnant tous les nombres contenus dans un objet
+ * de type Array ou JSON.
+ *
+ * @param Object obj - Object où se trouve des nombres
+ * @return int la somme totale
+ */
 function parseJsonPrem(obj) {
   let ret = 0;
   let value;
 
   for (const index in obj) {
     value = obj[index];
-    if (value instanceof Object) {
+    if (value instanceof Object) { // car Array est un Object
       ret += parseJsonPrem(value);
     } else if (Number.isInteger(value)) {
       ret += value;
