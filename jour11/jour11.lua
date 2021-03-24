@@ -92,17 +92,30 @@ local function badChar(mot, char)
     return ret
 end
 
-myInput = "cqjxjnds"
-fin = false
-
-while not fin do
-    myInput = badChar(myInput, 'i')
-    myInput = badChar(myInput, 'l')
-    myInput = badChar(myInput, 'o')
-    if suite(myInput) and double(myInput) >= 2 then
-        print(myInput)
-        fin = true
-    else
-        myInput = suivant(myInput)
+-- Trouve le mot de passe correspondant aux critères suivants :
+-- * une suite de 3 lettres consécutives au moins
+-- * pas de lettre i, l ou o
+-- * 2 pairs de lettres distinctes (aaa ne compte que pour une paire)
+-- @param mot string : le mot à vérifier et modifier
+-- @return string : le nouveau mot de passe
+local function findPass(mot)
+    local fin = false
+    local ret = mot
+    
+    while not fin do
+        ret = badChar(ret, 'i')
+        ret = badChar(ret, 'l')
+        ret = badChar(ret, 'o')
+        if suite(ret) and double(ret) >= 2 then
+            fin = true
+        else
+            ret = suivant(ret)
+        end
     end
+    return ret
 end
+
+myInput = "cqjxjnds"
+print("Traitement première partie…")
+myInput = findPass(myInput)
+print("Le nouveau mot de passe est : " .. myInput)
