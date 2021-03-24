@@ -21,7 +21,7 @@ mono jour10.exe
 |  8   |             |             |                       |                 |   |
 |  9   |             |             |                       |                 |   |
 |  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe |   |
-|  11  |             |             |                       |                 |   |
+|  11  |   Lua       |             |                       |  lua jour11.lua |   |
 |  12  |             |             |                       |                 |   |
 |  13  |             |             |                       |                 |   |
 |  14  |             |             |                       |                 |   |
@@ -124,6 +124,13 @@ mono jour10.exe
 ```
 
 ## Jour 11
+
+Ce jour utilise le Lua 5.2.4. Il se lance comme en Python avec une commande sur le fichier :
+
+```bash
+lua jour11.lua
+```
+
 ## Jour 12
 ## Jour 13
 ## Jour 14
