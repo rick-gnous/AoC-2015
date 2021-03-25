@@ -24,7 +24,7 @@ mono jour10.exe
 |  11  |   Lua       |             |                       |  lua jour11.lua |   |
 |  12  | Node.JS     |             |                       | node jour12.js  |   |
 |  13  |             |             |                       |                 |   |
-|  14  |             |             |                       |                 |   |
+|  14  | Objective-C |    gcc      |     [voir plus bas]   |   ./a.out       |   |
 |  15  |             |             |                       |                 |   |
 |  16  |             |             |                       |                 |   |
 |  17  |             |             |                       |                 |   |
@@ -154,6 +154,38 @@ node jour12.js
 
 ## Jour 13
 ## Jour 14
+
+Pour pouvoir compiler de l’Objective C avec GCC, installez les paquets `gcc-objc` et `gnustep-base-devel`. 
+
+```bash
+sudo xbps-install gcc-objc gnustep-base-devel # pour void
+# Commandes pour la compilation (ne pas utiliser)
+# gcc $(gnustep-config --objc-flags) jour14.m $(gnustep-config --base-libs)
+# gcc -lobjc jour14.m
+# gcc -lobjc -fconstant-string-class=NSConstantString jour14.m -lgnustep-base
+```
+
+La compilation se fait ensuite en 3 temps : il faut en premier faire les .o du main et de la classe `raindeer` avant de les mettre dans un seul et même fichier.
+
+```bash
+gcc -lobjc -fconstant-string-class=NSConstantString raindeer.m -lgnustep-base -c -o rain.o 
+gcc -lobjc -fconstant-string-class=NSConstantString jour14.m -lgnustep-base -c -o jour.o 
+gcc -lobjc -fconstant-string-class=NSConstantString *.o -lgnustep-base 
+```
+
+La compréhension de ce langage a été assez longue… Très peu de ressources « potables » en ligne, j’ai compris comment le langage marchait avec StackOverflow et un ou deux sites mieux foutus que les autres. Un grand merci à la documentation d’Apple qui est un bourbier sans nom même s’ils tentent de faire un bon truc. Voici une liste des différents sites qui m’ont été utiles : 
+
+* [Comment compiler l’Objective-C avec gcc](https://www.gc3.uzh.ch/blog/Compile_a_Objective-C_application_on_Ubuntu___40__Hobbes_instance__41__/)
+* [Site regroupant des tutos basiques pour l’Objective-C](https://www.tutorialspoint.com/objective_c/index.htm)
+* [Pleins d’exemples de code Objective-C](https://learnxinyminutes.com/docs/objective-c/)
+* [Bases pour faire une classe](http://www.cocoadevcentral.com/d/learn_objectivec/)
+* [Comment faire un constructeur](https://www.binpress.com/objective-c-object-initialization/)
+* [Les options de *property*](https://dsrijan.medium.com/objective-c-properties-901e8a1f82ac)
+* [Ancienne documentation de *property*](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Chapters/ocProperties.html)
+* [Explication de *synthesize*](https://developer.apple.com/forums/thread/69075)
+* [Tutoriel sur Objective-C, page sur *property*](https://www.journaldev.com/9580/classes-objects-and-methods-in-objective-c)
+* [Exemples d’utilisation de NSString](https://eezytutorials.com/ios/nsstring-by-example.php)
+
 ## Jour 15
 ## Jour 16
 ## Jour 17
