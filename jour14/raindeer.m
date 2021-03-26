@@ -4,7 +4,7 @@
 @implementation Raindeer
 
 // permet de créer les getters et setters à partir de property
-@synthesize name, speed, boostTime, pause;
+@synthesize name, speed, boostTime, pause, points, cooldown, hypervitesse, distance;
 
 + (id) initWithName:(NSString*)name zatSpeed:(int)speed boostTime:(int)boostTime LunchTime:(int)pause
 {
@@ -15,6 +15,10 @@
         new.speed = speed;
         new.boostTime = boostTime;
         new.pause = pause;
+        new.points = 0;
+        new.cooldown = 0;
+        new.hypervitesse = boostTime;
+        new.distance = 0;
     }
     return new;
 }
@@ -29,6 +33,28 @@
         time -= boostTime + pause;
     }
     return ret;
+}
+
+- (int) updateDistance
+{
+    if (cooldown > 0)
+        cooldown--;
+        if (cooldown == 0)
+            hypervitesse = boostTime;
+    else
+    {
+        distance += speed;
+        hypervitesse--;
+        if (hypervitesse == 0)
+            cooldown = pause;
+    }
+
+    return distance;
+}
+
+- (void) updatePoints
+{
+    points++;
 }
 
 - (void) dealloc

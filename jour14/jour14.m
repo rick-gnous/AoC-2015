@@ -1,4 +1,5 @@
 #import "raindeer.h"
+#import "troupeau.h"
 #import <Foundation/Foundation.h>
  
 int main() 
@@ -12,6 +13,7 @@ int main()
                                         error:&err];
     NSArray *lines = [contentFile componentsSeparatedByString:@"\n"];
     NSMutableArray *listDeer = [[NSMutableArray alloc] init];
+    Troupeau *troupeau = [[Troupeau alloc] init];
 
     for (NSString *tmp in lines)
     {
@@ -22,10 +24,11 @@ int main()
                                      zatSpeed:[[parsedSpace objectAtIndex:3]  integerValue]
                                      boostTime:[[parsedSpace objectAtIndex:6] integerValue]
                                      LunchTime:[[parsedSpace objectAtIndex:13] integerValue]];
-            [listDeer addObject:rd];
+            [troupeau newDeer:rd];
         }        
     }
 
+    /*
     int ret = 0;
     int tmp = 0;
     for (Raindeer *rd in listDeer)
@@ -35,7 +38,9 @@ int main()
             ret = tmp;
         [rd release];
     }
-    NSLog(@"le résultat est : %d", ret);
+    */
+    NSLog(@"le résultat est : %d", [troupeau courseUne:1000]);
+    NSLog(@"le résultat est : %d", [troupeau courseDeux:1000]);
 
     //finir le main par ça
     [contentFile release];
