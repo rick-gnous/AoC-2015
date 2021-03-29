@@ -15,7 +15,7 @@
         new.speed = speed;
         new.boostTime = boostTime;
         new.pause = pause;
-        new.points = 0;
+        new.points = 1; //pas sur que ce soit la bonne méthode mais chut
         new.cooldown = 0;
         new.hypervitesse = boostTime;
         new.distance = 0;
@@ -35,7 +35,7 @@
     return ret;
 }
 
-- (int) updateDistance
+- (void) updateDistance
 {
     if (cooldown > 0)
     {
@@ -50,7 +50,6 @@
         if (hypervitesse == 0)
             cooldown = pause;
     }
-    return distance;
 }
 
 - (void) updatePoints

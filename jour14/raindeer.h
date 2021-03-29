@@ -20,7 +20,7 @@
 
 + (id) initWithName:(NSString*)name zatSpeed:(int)speed boostTime:(int)timeSpeed LunchTime:(int)pause;
 - (int) calculDistance:(int)time;
-- (int) updateDistance;
+- (void) updateDistance;
 - (void) updatePoints;
 
 @end

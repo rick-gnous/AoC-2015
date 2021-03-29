@@ -35,33 +35,24 @@
 
 - (int) courseDeux:(int)time
 {
-    int ret = 0;
-    while (time > 0)
+    while (time >= 0)
     {
         for (Raindeer *rd in troupeau)
-        {
-            int t = [rd updateDistance];
-        }
+            [rd updateDistance];
         [troupeau sortUsingDescriptors:recetteTriDistance];
         [[troupeau firstObject] updatePoints];
         time--;
     }
-    NSSortDescriptor *tt = [[NSSortDescriptor alloc] initWithKey:@"points"
-                                                     ascending:NO];
-    NSArray *tmpp = [NSArray arrayWithObject:tt];
-    NSArray *sortedPonits = [troupeau sortedArrayUsingDescriptors:tmpp];
-    NSLog(@"%d", [[sortedPonits firstObject] points]);
-    ret = [[sortedPonits firstObject] points];
-    
-    return ret;
+    NSSortDescriptor *descPoints = [[NSSortDescriptor alloc] initWithKey:@"points"
+                                                             ascending:NO];
+    NSArray *tmp = [NSArray arrayWithObject:descPoints];
+    NSArray *sortedPoints = [troupeau sortedArrayUsingDescriptors:tmp];
+    return [[sortedPoints firstObject] points];
 }
 
 - (void) dealloc
 {
-    for (Raindeer *rd in troupeau)
-        [rd dealloc];
     [troupeau release];
-    //[recetteTri release];
     [super dealloc];
 }
 

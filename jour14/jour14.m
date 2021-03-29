@@ -9,8 +9,9 @@ int main()
     NSString *path = @"input";
     NSError *err;
     NSString *contentFile = [[NSString alloc] initWithContentsOfFile:path
-                                        encoding:NSUTF8StringEncoding 
-                                        error:&err];
+                                              encoding:NSUTF8StringEncoding 
+                                              error:&err];
+
     NSArray *lines = [contentFile componentsSeparatedByString:@"\n"];
     NSMutableArray *listDeer = [[NSMutableArray alloc] init];
     Troupeau *troupeau = [[Troupeau alloc] init];
@@ -28,24 +29,14 @@ int main()
         }        
     }
 
-    /*
-    int ret = 0;
-    int tmp = 0;
-    for (Raindeer *rd in listDeer)
-    {
-        tmp = [rd calculDistance:2503];
-        if (tmp > ret)
-            ret = tmp;
-        [rd release];
-    }
-    */
-    int time = 2503;
-    NSLog(@"le résultat est : %d", [troupeau courseUne:time]);
-    NSLog(@"le résultat est : %d", [troupeau courseDeux:time]);
+    const int time = 2503;
+    NSLog(@"le résultat de la première sélection est : %d", [troupeau courseUne:time]);
+    NSLog(@"le résultat de la deuxième sélection est : %d", [troupeau courseDeux:time]);
 
     //finir le main par ça
     [contentFile release];
     [listDeer release];
+    [troupeau dealloc];
     [myPool drain];
     return 0;
 }
