@@ -170,7 +170,9 @@ La compilation se fait ensuite en 3 temps : il faut en premier faire les .o du m
 ```bash
 gcc -lobjc -fconstant-string-class=NSConstantString raindeer.m -lgnustep-base -c -o rain.o 
 gcc -lobjc -fconstant-string-class=NSConstantString jour14.m -lgnustep-base -c -o jour.o 
+gcc -lobjc -fconstant-string-class=NSConstantString troupeau.m -lgnustep-base -c -o troupeau.o 
 gcc -lobjc -fconstant-string-class=NSConstantString *.o -lgnustep-base 
+./a.out
 ```
 
 La compréhension de ce langage a été assez longue… Très peu de ressources « potables » en ligne, j’ai compris comment le langage marchait avec StackOverflow et un ou deux sites mieux foutus que les autres. Un grand merci à la documentation d’Apple qui est un bourbier sans nom même s’ils tentent de faire un bon truc. Voici une liste des différents sites qui m’ont été utiles : 
