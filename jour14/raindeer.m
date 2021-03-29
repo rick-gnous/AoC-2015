@@ -38,17 +38,18 @@
 - (int) updateDistance
 {
     if (cooldown > 0)
+    {
         cooldown--;
         if (cooldown == 0)
             hypervitesse = boostTime;
+    }
     else
     {
-        distance += speed;
+        distance = distance + speed;
         hypervitesse--;
         if (hypervitesse == 0)
             cooldown = pause;
     }
-
     return distance;
 }
 

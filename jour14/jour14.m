@@ -39,8 +39,9 @@ int main()
         [rd release];
     }
     */
-    NSLog(@"le résultat est : %d", [troupeau courseUne:1000]);
-    NSLog(@"le résultat est : %d", [troupeau courseDeux:1000]);
+    int time = 2503;
+    NSLog(@"le résultat est : %d", [troupeau courseUne:time]);
+    NSLog(@"le résultat est : %d", [troupeau courseDeux:time]);
 
     //finir le main par ça
     [contentFile release];

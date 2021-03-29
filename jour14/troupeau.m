@@ -8,9 +8,10 @@
     self = [super init];
     if (self)
     {
-       recetteTri = [[NSSortDescriptor alloc] initWithKey:@"distance"
-                                                    ascending:YES];
-       troupeau = [[NSMutableArray alloc] init];
+        NSSortDescriptor *recetteTri = [[NSSortDescriptor alloc] initWithKey:@"distance"
+                                                                ascending:NO];
+        recetteTriDistance = [NSArray arrayWithObject:recetteTri];
+        troupeau = [[NSMutableArray alloc] init];
     } 
     return self;
 }
@@ -41,16 +42,12 @@
         {
             int t = [rd updateDistance];
         }
-        NSArray *tmp = [NSArray arrayWithObject:recetteTri];
-        NSArray *sortedRank = [troupeau sortedArrayUsingDescriptors:tmp];
-        [[sortedRank firstObject] updatePoints];
-        NSLog(@"%d", [[sortedRank firstObject] points]);
-        NSLog(@"Rennes : %@ pour une distance de %d", [[troupeau firstObject] name], [[troupeau firstObject] distance]);
-        // copier dans le troupeau le tableau trié
+        [troupeau sortUsingDescriptors:recetteTriDistance];
+        [[troupeau firstObject] updatePoints];
         time--;
     }
     NSSortDescriptor *tt = [[NSSortDescriptor alloc] initWithKey:@"points"
-                                                    ascending:YES];
+                                                     ascending:NO];
     NSArray *tmpp = [NSArray arrayWithObject:tt];
     NSArray *sortedPonits = [troupeau sortedArrayUsingDescriptors:tmpp];
     NSLog(@"%d", [[sortedPonits firstObject] points]);
@@ -64,7 +61,7 @@
     for (Raindeer *rd in troupeau)
         [rd dealloc];
     [troupeau release];
-    [recetteTri release];
+    //[recetteTri release];
     [super dealloc];
 }
 

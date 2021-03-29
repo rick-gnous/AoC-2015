@@ -4,7 +4,7 @@
 @interface Troupeau : NSObject
 {
     NSMutableArray *troupeau;
-    NSSortDescriptor *recetteTri;
+    NSArray *recetteTriDistance;
 }
 
 - (id) init;
