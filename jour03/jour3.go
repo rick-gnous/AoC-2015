@@ -38,9 +38,8 @@ func p_partie(file *os.File) {
     nbMaison := 1
     listeMaison := list.New()
     listeMaison.PushFront(pred)
-    char, _, err := reader.ReadRune()
 
-    for err != io.EOF {
+    for char, _, err := reader.ReadRune(); err != io.EOF; {
         switch string(char) {
         case "^":
             pred.y++
