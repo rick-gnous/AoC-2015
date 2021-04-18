@@ -30,34 +30,45 @@ func coordDansListe(l *list.List, e Coord) (bool) {
     return false
 }
 
+func nouvCoord(l *list.List, c string, pred Coord) (Coord, bool) {
+    ret := false
+    switch c {
+    case "^":
+        pred.y++
+    case ">":
+        pred.x++
+    case "<":
+        pred.x--
+    case "v":
+        pred.y--
+    }
+
+    if !coordDansListe(l, pred) {
+        l.PushFront(pred)
+        ret = true
+    }
+
+    return pred, ret
+}
+
 func p_partie(file *os.File) {
     reader := bufio.NewReader(file)
+    var nouvMaison bool
     var pred Coord
     pred.x = 0
     pred.y = 0
-    nbMaison := 1
+    nbMaisons := 1
     listeMaison := list.New()
     listeMaison.PushFront(pred)
 
     for char, _, err := reader.ReadRune(); err != io.EOF; {
-        switch string(char) {
-        case "^":
-            pred.y++
-        case ">":
-            pred.x++
-        case "<":
-            pred.x--
-        case "v":
-            pred.y--
-        }
-
-        if !coordDansListe(listeMaison, pred) {
-            listeMaison.PushFront(pred)
-            nbMaison++
+        pred, nouvMaison = nouvCoord(listeMaison, string(char), pred)
+        if nouvMaison {
+            nbMaisons++
         }
         char, _, err = reader.ReadRune()
     }
-    fmt.Printf("Il y a %d maisons déservies\n", nbMaison)
+    fmt.Printf("Il y a %d maisons déservies\n", nbMaisons)
 }
 
 func main() {
