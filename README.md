@@ -13,7 +13,7 @@ mono jour10.exe
 |-----:|------------:|------------:|----------------------:|----------------:|--:|
 |  1   |    C        |    gcc      |      gcc jour1.c      |   ./a.out       |   |
 |  2   |   Java      |    jdk 11   |       javac *.java    |  java Main      |   |
-|  3   |             |             |                       |                 |   |
+|  3   | Go          |             |                       | go run jour3.go |   |
 |  4   | Python      |             |                       |  python3 run.py |   |
 |  5   | Cobol       |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |   |
 |  6   |             |             |                       |                 |   |
@@ -60,6 +60,12 @@ java Main
 ```
 
 ## Jour 3
+
+Pour ce jour, le **Go** a été utilisé. Un langage qui fait beaucoup pensé au C mais aussi au Python ! Bien qu’il soit possible de compiler le fichier, j’ai utilisé la partie interpréteure du langage.
+
+```bash
+go run jour3.go
+```
 
 ## Jour 4
 
