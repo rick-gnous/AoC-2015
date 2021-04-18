@@ -13,12 +13,6 @@ type Coord struct {
     y int
 }
 
-func check(e error) {
-    if e != nil {
-        panic(e)
-    }
-}
-
 func coordDansListe(l *list.List, e Coord) (bool) {
     var tmp Coord
     for elem := l.Front(); elem != nil; elem = elem.Next() {
@@ -55,8 +49,7 @@ func p_partie(file *os.File) {
     reader := bufio.NewReader(file)
     var nouvMaison bool
     var pred Coord
-    pred.x = 0
-    pred.y = 0
+    pred.x, pred.y = 0, 0
     nbMaisons := 1
     listeMaison := list.New()
     listeMaison.PushFront(pred)
@@ -71,11 +64,45 @@ func p_partie(file *os.File) {
     fmt.Printf("Il y a %d maisons déservies\n", nbMaisons)
 }
 
+func d_partie(file *os.File) {
+    reader := bufio.NewReader(file)
+    var nouvMaison bool
+    var predNoel, predRobot Coord
+    predNoel.x , predNoel.y, predRobot.x, predRobot.y = 0, 0, 0, 0
+    nbMaisons := 1
+    listeMaison := list.New()
+    listeMaison.PushFront(predNoel)
+
+    char, _, err := reader.ReadRune()
+    i := 0
+
+    for err != io.EOF {
+        if i % 2 == 0 {
+            predNoel, nouvMaison = nouvCoord(listeMaison, string(char), predNoel)
+        } else {
+            predRobot, nouvMaison = nouvCoord(listeMaison, string(char), predRobot)
+        }
+
+        if nouvMaison {
+            nbMaisons++
+        }
+        char, _, err = reader.ReadRune()
+        i++
+    }
+    fmt.Printf("Il y a %d maisons déservies\n", nbMaisons)
+}
+
 func main() {
     inputFile, err := os.Open("input")
-    check(err)
+    if err != nil {
+        panic(err)
+    }
 
+    fmt.Printf("Traitement partie 1…\n")
     p_partie(inputFile)
+    inputFile.Seek(0, 0)
+    fmt.Printf("Traitement partie 2…\n")
+    d_partie(inputFile)
 
     inputFile.Close()
 }
