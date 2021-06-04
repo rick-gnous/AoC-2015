@@ -1,3 +1,4 @@
+#!usr/bin/perl
 use strict;
 use warnings;
 
@@ -15,6 +16,19 @@ while (<FH>) {
     $total = $total + length($_) - length($tmp);
 }
 
-close(FH);
+print "Le total est : $total.\n";
+seek FH, 0, 0;
+$total = 0;
+print "Traitement de la deuxième partie…\n";
+
+while (<FH>) {
+    $tmp = $_;
+    $tmp =~ s/\\/\\\\/ig;
+    $tmp =~ s/"/\\"/ig;
+    chomp($tmp);
+    chomp($_);
+    $total = $total + length($tmp) + 2 - length($_);
+}
 
 print "Le total est : $total.\n";
+close(FH);
