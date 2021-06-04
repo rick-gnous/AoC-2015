@@ -217,20 +217,16 @@ La compréhension de ce langage a été assez longue… Très peu de ressources 
 
 
 
-Liste des langages utilisés
-
+## Liste des langages à utiliser
 
 * Shell
-* Perl
 * HolyC
 * C++
 * C#
 * Pascal
 * Freepascal
-* Go
 * Rust
 * Groovy
-* JS
 * PHP
 * Pony
 * Ruby
