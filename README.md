@@ -3,7 +3,7 @@
 
 J’ai décidé de faire l’édition de 2015 de l’Advent of Code en utilisant un langage différent pour chaque jour. J’essaie d’utiliser au mieux le langage (par exemple, Java est orienté objet). Vous trouverez ci-dessous un tableau résumant rapidement ce dont vous avez besoin pour lancer chaque jour et plus bas encore des notes plus précises pour les différents jours.
 
-[test](#Jour_1)
+[test](#jour-1)
 
 ## TLDR
 
