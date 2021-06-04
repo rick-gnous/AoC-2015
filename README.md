@@ -123,7 +123,7 @@ perl jour8.pl
 
 ## Jour 10
 
-Il faut utiliser Mono afin de pouvoir compiler et exécuter le Visual Basic qui utilise .NET.
+Il faut utiliser Mono afin de pouvoir compiler et exécuter le **Visual Basic** qui utilise .NET.
 
 ```bash
 trizen -S mono-basic mono
@@ -138,7 +138,7 @@ mono jour10.exe
 
 ## Jour 11
 
-Ce jour utilise le Lua 5.2.4. Il se lance comme en Python avec une commande sur le fichier :
+Ce jour utilise le **Lua**. Il se lance comme en Python avec une commande sur le fichier :
 
 ```bash
 lua jour11.lua
@@ -146,7 +146,7 @@ lua jour11.lua
 
 ## Jour 12
 
-Avant d’écrire le script Node.JS, j’ai utilisé une REGEX pour la première partie. Il suffit d’additionner les nombres du fichier ! Ça se fait très facilement en Bash. Par contre, la REGEX de la partie 2, si elle existe, est beaucoup plus complexe. J’ai préféré réécrire ma réponse à la question 1 en Node.JS, langage logique pour du JSON.
+Avant d’écrire le script **Node.JS**, j’ai utilisé une REGEX pour la première partie. Il suffit d’additionner les nombres du fichier ! Ça se fait très facilement en Bash. Par contre, la REGEX de la partie 2, si elle existe, est beaucoup plus complexe. J’ai préféré réécrire ma réponse à la question 1 en Node.JS, langage logique pour du JSON.
 
 Voici la ligne bash décortiquée en script pour une meilleure compréhension :
 
@@ -168,7 +168,7 @@ node jour12.js
 ## Jour 13
 ## Jour 14
 
-Pour pouvoir compiler de l’Objective C avec GCC, installez les paquets `gcc-objc` et `gnustep-base-devel`. 
+Pour pouvoir compiler de l’**Objective C** avec GCC, installez les paquets `gcc-objc` et `gnustep-base-devel`. 
 
 ```bash
 sudo xbps-install gcc-objc gnustep-base-devel # pour void
