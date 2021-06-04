@@ -18,7 +18,7 @@ mono jour10.exe
 |  5   | Cobol       |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |   |
 |  6   |             |             |                       |                 |   |
 |  7   |             |             |                       |                 |   |
-|  8   |             |             |                       |                 |   |
+|  8   |  Perl       |             |                       |   perl jour8.pl |   |
 |  9   |             |             |                       |                 |   |
 |  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe |   |
 |  11  |   Lua       |             |                       |  lua jour11.lua |   |
@@ -112,6 +112,13 @@ sed -Ei 's/^[0-9]{6}/      /g' jour5.cob
 ## Jour 6
 ## Jour 7
 ## Jour 8
+
+Le langage utilisé est le **Perl**. Il suffit d’utiliser la commande `perl` qui va exécuter le fichier.
+
+```bash
+perl jour8.pl
+```
+
 ## Jour 9
 
 ## Jour 10
