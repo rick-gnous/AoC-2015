@@ -9,32 +9,32 @@ Ce tableau contient les langages pour chaque jours ainsi que le compilateur, la 
 
 vbnc jour10.vbs
 mono jour10.exe
-| Jour | Langage     | Compilateur | Commande pour compil  |    Exécution    |   |
-|-----:|------------:|------------:|----------------------:|----------------:|--:|
-|  1   |    C        |    gcc      |      gcc jour1.c      |   ./a.out       |   |
-|  2   |   Java      |    jdk 11   |       javac *.java    |  java Main      |   |
-|  3   | Go          |             |                       | go run jour3.go |   |
-|  4   | Python      |             |                       |  python3 run.py |   |
-|  5   | Cobol       |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |   |
-|  6   |             |             |                       |                 |   |
-|  7   |             |             |                       |                 |   |
-|  8   |  Perl       |             |                       |   perl jour8.pl |   |
-|  9   |             |             |                       |                 |   |
-|  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe |   |
-|  11  |   Lua       |             |                       |  lua jour11.lua |   |
-|  12  | Node.JS     |             |                       | node jour12.js  |   |
-|  13  |             |             |                       |                 |   |
-|  14  | Objective-C |    gcc      |     [voir plus bas]   |   ./a.out       |   |
-|  15  |             |             |                       |                 |   |
-|  16  |             |             |                       |                 |   |
-|  17  |             |             |                       |                 |   |
-|  18  |             |             |                       |                 |   |
-|  19  |             |             |                       |                 |   |
-|  20  |             |             |                       |                 |   |
-|  21  |             |             |                       |                 |   |
-|  22  |             |             |                       |                 |   |
-|  23  |             |             |                       |                 |   |
-|  24  |             |             |                       |                 |   |
+| Jour | Langage     | Compilateur | Commande pour compil  |    Exécution    |             Version                 |
+|-----:|------------:|------------:|----------------------:|----------------:|------------------------------------:|
+|  1   |    C        |    gcc      |      gcc jour1.c      |   ./a.out       | 10.2.1 20201203                     |
+|  2   |   Java      |    jdk 11   |       javac *.java    |  java Main      | 11.0.9                              |
+|  3   | Go          |             |                       | go run jour3.go |    go1.16.4                         |
+|  4   | Python      |             |                       |  python3 run.py |    3.9.5                            |
+|  5   | Cobol       |  gnucobol   |   cobc -x jour5.cob   |  ./jour5        |    2.2.0                            |
+|  6   |             |             |                       |                 |                                     |
+|  7   |             |             |                       |                 |                                     |
+|  8   |  Perl       |             |                       |   perl jour8.pl | perl 5 version 32                   |
+|  9   |             |             |                       |                 |                                     |
+|  10  |Visual Basic |   vbnc      |  vbnc jour10.vbs      | mono jour10.exe | vbnc 0.0.0.5943 Mono 4.8            |
+|  11  |   Lua       |             |                       |  lua jour11.lua | 5.2.4                               |
+|  12  | Node.JS     |             |                       | node jour12.js  |  v14.16.0                           |
+|  13  |             |             |                       |                 |                                     |
+|  14  | Objective-C |    gcc      |     [voir plus bas]   |   ./a.out       | gcc-objc 10.2.1 gnustep-base 1.28.0 |
+|  15  |             |             |                       |                 |                                     |
+|  16  |             |             |                       |                 |                                     |
+|  17  |             |             |                       |                 |                                     |
+|  18  |             |             |                       |                 |                                     |
+|  19  |             |             |                       |                 |                                     |
+|  20  |             |             |                       |                 |                                     |
+|  21  |             |             |                       |                 |                                     |
+|  22  |             |             |                       |                 |                                     |
+|  23  |             |             |                       |                 |                                     |
+|  24  |             |             |                       |                 |                                     |
 
 
 
